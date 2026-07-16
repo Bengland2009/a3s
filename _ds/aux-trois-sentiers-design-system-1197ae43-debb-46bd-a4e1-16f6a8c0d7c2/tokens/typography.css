@@ -1,0 +1,15 @@
+:root{
+--font-display:"Fraunces","Quiche Sans",Georgia,serif;
+--font-body:"Inter","Inter Fallback",-apple-system,sans-serif;
+--text-h1-size:34px;--text-h1-lh:40px;--text-h1-weight:500;
+--text-h2-size:28px;--text-h2-lh:34px;--text-h2-weight:500;
+--text-h3-size:22px;--text-h3-lh:28px;--text-h3-weight:600;
+--text-h4-size:19px;--text-h4-lh:25px;--text-h4-weight:600;
+--text-h5-size:17px;--text-h5-lh:23px;--text-h5-weight:600;
+--text-h6-size:15px;--text-h6-lh:21px;--text-h6-weight:600;
+--text-body-size:17px;--text-body-lh:27px;--text-body-weight:400;
+--text-body-sm-size:15px;--text-body-sm-lh:23px;--text-body-sm-weight:400;
+--text-button-size:16px;--text-button-weight:600;
+--text-label-size:14px;--text-label-weight:500;
+--text-small-size:13px;--text-small-weight:400;
+}

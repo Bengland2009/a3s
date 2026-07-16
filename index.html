@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Aux trois sentiers — Prototype mobile</title>
+<link rel="stylesheet" href="_ds/aux-trois-sentiers-design-system-1197ae43-debb-46bd-a4e1-16f6a8c0d7c2/fonts/fonts.css">
+<link rel="stylesheet" href="_ds/aux-trois-sentiers-design-system-1197ae43-debb-46bd-a4e1-16f6a8c0d7c2/tokens/colors.css">
+<link rel="stylesheet" href="_ds/aux-trois-sentiers-design-system-1197ae43-debb-46bd-a4e1-16f6a8c0d7c2/tokens/typography.css">
+<link rel="stylesheet" href="_ds/aux-trois-sentiers-design-system-1197ae43-debb-46bd-a4e1-16f6a8c0d7c2/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/aux-trois-sentiers-design-system-1197ae43-debb-46bd-a4e1-16f6a8c0d7c2/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="_ds/aux-trois-sentiers-design-system-1197ae43-debb-46bd-a4e1-16f6a8c0d7c2/_ds_bundle.js"></script>
+<style>body{margin:0;background:#e7e2da;font-family:var(--font-body);display:flex;align-items:center;justify-content:center;min-height:100vh}a,a:hover{color:var(--color-prune)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="prototype/PhoneFrame.jsx"></script>
+<script type="text/babel" src="prototype/ScreenScroll.jsx"></script>
+<script type="text/babel" src="prototype/LoginScreen.jsx"></script>
+<script type="text/babel" src="prototype/AccueilScreen.jsx"></script>
+<script type="text/babel" src="prototype/ApaiserScreen.jsx"></script>
+<script type="text/babel" src="prototype/AudioScreen.jsx"></script>
+<script type="text/babel" src="prototype/ComprendreScreen.jsx"></script>
+<script type="text/babel" src="prototype/QuestionDetailScreen.jsx"></script>
+<script type="text/babel" src="prototype/PenseesScreen.jsx"></script>
+<script type="text/babel" src="prototype/ShareThoughtScreen.jsx"></script>
+<script type="text/babel" src="prototype/SoutienScreen.jsx"></script>
+<script type="text/babel" src="prototype/ProfileScreen.jsx"></script>
+<script type="text/babel">
+const {NavBar}=window.AuxTroisSentiersDesignSystem_1197ae;
+const tabScreens=["accueil","apaiser","comprendre","pensees","soutien"];
+function App(){
+const [screen,setScreen]=React.useState("login");
+const [question,setQuestion]=React.useState(null);
+React.useEffect(()=>{lucide.createIcons();});
+function go(s){setScreen(s);}
+let body=null;
+if(screen==="login") body=<window.LoginScreen onLogin={()=>go("accueil")} />;
+else if(screen==="accueil") body=<window.AccueilScreen onNavigate={go} onOpenAudio={()=>go("audio")} onOpenQuestion={q=>{setQuestion(q);go("question");}} />;
+else if(screen==="apaiser") body=<window.ApaiserScreen onNavigate={go} onOpenAudio={()=>go("audio")} />;
+else if(screen==="audio") body=<window.AudioScreen onBack={()=>go("apaiser")} />;
+else if(screen==="comprendre") body=<window.ComprendreScreen onNavigate={go} onOpenQuestion={q=>{setQuestion(q);go("question");}} />;
+else if(screen==="question") body=<window.QuestionDetailScreen question={question} onBack={()=>go("comprendre")} />;
+else if(screen==="pensees") body=<window.PenseesScreen onNavigate={go} onOpenShare={()=>go("share")} />;
+else if(screen==="share") body=<window.ShareThoughtScreen onBack={()=>go("pensees")} onSubmit={()=>go("pensees")} />;
+else if(screen==="soutien") body=<window.SoutienScreen onNavigate={go} />;
+else if(screen==="profil") body=<window.ProfileScreen onBack={()=>go("accueil")} onLogout={()=>go("login")} />;
+return (<window.PhoneFrame>
+{body}
+{tabScreens.includes(screen)&&<NavBar active={screen} onNavigate={go} />}
+</window.PhoneFrame>);
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body></html>
