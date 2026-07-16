@@ -1,4 +1,10 @@
 function PhoneFrame({children}){
-return React.createElement("div",{style:{width:390,height:844,margin:"0 auto",background:"var(--surface-app)",borderRadius:40,overflow:"hidden",display:"flex",flexDirection:"column",boxShadow:"0 20px 60px rgba(48,43,45,0.25)",border:"8px solid #1a1a1a",position:"relative",fontFamily:"var(--font-body)"}},children);
+return React.createElement(React.Fragment,null,
+React.createElement("style",null,`
+.a3s-frame{width:100%;max-width:480px;margin:0 auto;min-height:100dvh;background:var(--surface-app);display:flex;flex-direction:column;font-family:var(--font-body);position:relative}
+@media (min-width:481px){.a3s-frame{box-shadow:0 0 40px rgba(48,43,45,0.08)}}
+`),
+React.createElement("div",{className:"a3s-frame"},children)
+);
 }
 window.PhoneFrame=PhoneFrame;
