@@ -433,7 +433,7 @@ function Header({
       alignItems: "center"
     }
   }, React.createElement("img", {
-    src: "../../assets/logo-aux-trois-sentiers-pale.svg",
+    src: "assets/logo-aux-trois-sentiers-pale.svg",
     alt: "Aux trois sentiers",
     style: {
       height: 22
@@ -608,7 +608,7 @@ function AccueilScreen({
       alignItems: "flex-end"
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/forest-path.jpg",
+    src: "assets/forest-path.jpg",
     alt: "",
     style: {
       position: "absolute",
@@ -975,7 +975,7 @@ function AudioScreen({
       position: "relative"
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/forest-path.jpg",
+    src: "assets/forest-path.jpg",
     alt: "",
     style: {
       width: "100%",
@@ -1155,7 +1155,7 @@ function LoginScreen({
       padding: "14px 22px"
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/logo-aux-trois-sentiers-pale.svg",
+    src: "assets/logo-aux-trois-sentiers-pale.svg",
     alt: "Aux trois sentiers",
     style: {
       height: 32
