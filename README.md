@@ -26,14 +26,13 @@ et Lucide sont chargés via CDN (unpkg.com), donc une connexion internet est req
 
 ## Notes d'implémentation
 
-Ce prototype a été importé depuis le projet Claude Design correspondant. Deux
-substitutions ont été faites car l'outil de synchronisation plafonne le
+Ce prototype a été importé depuis le projet Claude Design correspondant.
+Une substitution a été faite car l'outil de synchronisation plafonne le
 téléversement de fichiers binaires à 256 Kio :
 
 - **Polices Inter** : le design source auto-hébergeait des fichiers `.ttf`
   (trop volumineux à transférer). `fonts.css` charge maintenant Inter et
   Fraunces depuis Google Fonts — rendu visuel identique.
-- **Photo `forest-path.jpg`** : la photographie originale dépasse la limite de
-  transfert. Elle a été remplacée par un dégradé généré évoquant les mêmes
-  teintes (sauge → beige). Remplacez `assets/forest-path.jpg` et
-  `prototype/assets/forest-path.jpg` par la photo originale pour un rendu fidèle.
+
+La photo `forest-path.jpg` (`assets/` et `prototype/assets/`) est la version
+allégée fournie directement par l'utilisateur.
